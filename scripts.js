@@ -10,6 +10,8 @@ const sections = {
 const addCharacterForm = document.querySelector('#character-form');
 const characterNameInput = document.querySelector('#character-name');
 const characterSelectLegend = document.querySelector('#js-character-select-legend');
+const playerName = document.querySelector('#js-player-name');
+const editBtn = document.querySelector('#js-edit-btn');
 
 addCharacterForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -27,6 +29,10 @@ function showSection(targetId) {
   } else {
     navigation.classList.remove('hidden');
   };
+  if (targetId === 'settings') {
+    const playerNameValue = localStorage.getItem('characterName');
+    playerName.textContent = playerNameValue || 'You need register. Click "Edit".';
+  };
 };
 
 navigationBtns.forEach((btn) => {
@@ -34,6 +40,12 @@ navigationBtns.forEach((btn) => {
     const targetId = btn.id.replace('-icon', '');
     showSection(targetId);
   });
+});
+
+editBtn.addEventListener('click', () => {
+  localStorage.removeItem('characterName');
+  showSection('register');
+  characterNameInput.value = '';
 });
 
 document.addEventListener('DOMContentLoaded', () => {

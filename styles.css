@@ -67,11 +67,15 @@
   opacity: 0.5;
 }
 .register-content,
-.home-content {
+.home-content,
+.settings-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.settings-content {
+  gap: 1.5rem;
 }
 .form {
   display: flex;
@@ -128,6 +132,13 @@
   border: 2px solid #2b2b2b;
   box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.3);
   border-radius: 6px;
+}
+.player-name {
+  font-size: 2rem;
+  color: #2b2b2b;
+}
+.player-name span {
+  font-weight: 600;
 }
 
 @media (hover:hover) {
