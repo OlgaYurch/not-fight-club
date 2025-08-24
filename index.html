@@ -15,13 +15,13 @@
         <button type="button" id="settings-icon" class="btn-nav" disabled aria-label="Get Settings Page"></button>
       </div>
       <section class="section" id="register">
-        <h2 class="section-title hidden">Register</h2>
+        <h2 class="section-title">Register</h2>
         <div class="register-content">
-          <form id="character-form">
+          <form id="character-form" class="form">
             <fieldset class="fieldset">
               <legend class="form-title">Create Your Character</legend>
               <label for="character-name" class="input-title">Character Name</label>
-              <input type="text" id="character-name" name="characterName" required>
+              <input type="text" id="character-name" class="input" minlength="3" name="characterName" required>
             </fieldset>
             <button type="submit" class="btn-text">Create Character</button>
           </form>
@@ -29,6 +29,28 @@
       </section>
       <section class="section hidden" id="home">
         <h2 class="section-title">Home</h2>
+        <div class="home-content">
+          <form id="character-select" class="form">
+            <fieldset class="fieldset">
+              <legend class="form-title">Select Your Character</legend>
+              <div class="characters-list">
+                <label class="character-card">
+                  <input type="radio" name="character" value="character1">
+                  <img src="assets/img/characters/character1.webp" alt="Character 1">
+                </label>
+                <label class="character-card">
+                  <input type="radio" name="character" value="character2">
+                  <img src="assets/img/characters/character2.webp" alt="Character 2">
+                </label>
+                <label class="character-card">
+                  <input type="radio" name="character" value="character3">
+                  <img src="assets/img/characters/character3.webp" alt="Character 3">
+                </label>
+              </div>
+            </fieldset>
+            <button type="submit" class="btn-text">Fight!</button>
+          </form>
+        </div>
       </section>
       <section class="section hidden" id="character">
         <h2 class="section-title">Character</h2>
