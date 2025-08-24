@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.body-background {
+  width: 100vw;
+  height: 100vh;
+  background: #2b2b2b;
+  padding: 1rem;
+}
+.game-wrapper {
+  width: 80%;
+  height: calc(100vh - 2rem);
+  background: #e8e8e8;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  box-shadow: 0px 5px 10px 2px rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+.navigation {
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+}
+.navigation.hidden {
+  display: none;
+  cursor: default;
+}
+.btn-nav {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#home-icon {
+  background-image: url(assets/img/home.webp);
+}
+#character-icon {
+  background-image: url(assets/img/user.webp);
+}
+#settings-icon {
+  background-image: url(assets/img/settings.webp);
+}
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+}
+.section-title {
+  color: #2b2b2b;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+.register-content,
+.home-content,
+.settings-content,
+.character-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.settings-content,
+.character-content {
+  gap: 1.5rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.form-title {
+  font-size: 2rem;
+  padding: 1.5rem;
+  color: #2b2b2b;
+}
+.input-title {
+  font-size: 1.5rem;
+  color: #2b2b2b;
+}
+.input {
+  font-size: 2rem;
+}
+.btn-text {
+  border: 1px solid #2b2b2b;
+  border-radius: 5px;
+  background-color: #a4a4a4;
+  color: #2b2b2b;
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+.character-card {
+  display: inline-flex;
+  max-width: calc(100%/3);
+  height: 220px;
+  gap: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+.character-card input[type="radio"] {
+  opacity: 0;
+  pointer-events: none;
+}
+.character-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+.character-card input[type="radio"]:checked + img {
+  filter: grayscale(0%);
+  border: 2px solid #2b2b2b;
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.3);
+  border-radius: 6px;
+}
+.character-img {
+  width: 50%;
+  height: 250px;
+  background-image: url();
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px rgba(186, 186, 186, 0.3);
+}
+.character-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+}
+.player-name,
+.character-description {
+  font-size: 2rem;
+  color: #2b2b2b;
+}
+.player-name span,
+.character-description span {
+  font-weight: 600;
+}
+.battle-content {
+  display: flex;
+  gap: 1.5rem;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+}
+.battle-img-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 30%;
+}
+.battle-img {
+  width: 100%;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px rgba(186, 186, 186, 0.3);
+}
+.battle-character-img {
+  background-image: url(assets/img/characters/character3.webp);
+}
+.battle-robot-img {
+  background-image: url(assets/img/characters/character2.webp);
+}
+.battle-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 25%;
+  align-items: center;
+  text-align: center;
+}
+.battle-text,
+.battle-inputs label {
+  font-size: 1.5rem;
+  color: #2b2b2b;
+}
+.battle-inputs-block {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.battle-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+.battle-character-name,
+.battle-inputs legend {
+  font-size: 1.3rem;
+  color: #7f7f7f;
+}
+
+@media (hover:hover) {
+  .btn-nav:not(:disabled):hover {
+    cursor: pointer;
+    transform: scale(110%);
+    background-color: #a4a4a4;
+  }
+  .btn-text:hover {
+    cursor: pointer;
+    background-color: #f3f3f3;
+    border: 2px solid #2b2b2b;
+  }
+  .character-card:hover img {
+    cursor: pointer;
+    filter: grayscale(0%);
+    transform: scale(1.02);
+  }
+}
