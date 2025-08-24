@@ -138,7 +138,7 @@
 .character-img {
   width: 50%;
   height: 250px;
-  background-image: url(assets/img/characters/character1.webp);
+  background-image: url();
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

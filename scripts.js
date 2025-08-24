@@ -12,6 +12,7 @@ const characterNameInput = document.querySelector('#character-name');
 const characterSelectLegend = document.querySelector('#js-character-select-legend');
 const playerName = document.querySelector('#js-player-name');
 const editBtn = document.querySelector('#js-edit-btn');
+const characterSelectForm = document.getElementById('character-select');
 
 addCharacterForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -37,8 +38,8 @@ function showSection(targetId) {
     const characterName = localStorage.getItem('characterName');
     const wins = localStorage.getItem('wins'); // пока еше не будет данные - не сделала страницу с боем
     const loses = localStorage.getItem('loses'); // пока еше не будет данные - не сделала страницу с боем
-    const characterImageUrl = localStorage.getItem('characterImageUrl'); // еще не добавила обработчик на fight на странице home - по нему планирую соранять выбранного героя
-    document.querySelector('.character-img').style.backgroundImahe = `url('${characterImageUrl}')`;
+    const characterImageUrl = localStorage.getItem('characterImageUrl');
+    document.querySelector('.character-img').style.backgroundImage = `url('${characterImageUrl}')`;
     document.getElementById('js-character-name').textContent = characterName;
     document.getElementById('js-wins').textContent = wins || '0';
     document.getElementById('js-loses').textContent = loses || '0';
@@ -54,14 +55,24 @@ navigationBtns.forEach((btn) => {
 
 editBtn.addEventListener('click', () => {
   localStorage.removeItem('characterName');
+  localStorage.removeItem('characterImageUrl');
   showSection('register');
   characterNameInput.value = '';
 });
 
+characterSelectForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const selectedCharacter = characterSelectForm.querySelector('input[name="character"]:checked');
+  if (!selectedCharacter) {
+    alert('Please select a character before fighting!');
+    return;
+  };
 
-  // Показываем секцию
-//   document.querySelector('#character').classList.remove('hidden');
-// });
+  const selectedImageUrl = document.getElementById(`${selectedCharacter.value}`).getAttribute('src');
+  localStorage.setItem('characterImageUrl', selectedImageUrl);
+
+  showSection('battle');
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   showSection('register');
