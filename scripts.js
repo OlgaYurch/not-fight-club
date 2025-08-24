@@ -35,14 +35,16 @@ function showSection(targetId) {
     playerName.textContent = playerNameValue;
   };
   if (targetId === 'character') {
-    const characterName = localStorage.getItem('characterName');
-    const wins = localStorage.getItem('wins'); // пока еше не будет данные - не сделала страницу с боем
-    const loses = localStorage.getItem('loses'); // пока еше не будет данные - не сделала страницу с боем
-    const characterImageUrl = localStorage.getItem('characterImageUrl');
-    document.querySelector('.character-img').style.backgroundImage = `url('${characterImageUrl}')`;
-    document.getElementById('js-character-name').textContent = characterName;
+    const wins = localStorage.getItem('wins');
+    const loses = localStorage.getItem('loses');
+    document.querySelector('.character-img').style.backgroundImage = `url('${localStorage.getItem('characterImageUrl')}')`;
+    document.getElementById('js-character-name').textContent = localStorage.getItem('characterName');
     document.getElementById('js-wins').textContent = wins || '0';
     document.getElementById('js-loses').textContent = loses || '0';
+  };
+  if (targetId === 'battle') {
+    document.querySelector('#js-battle-character-name').textContent = localStorage.getItem('characterName');
+    document.querySelector('.battle-character-img').style.backgroundImage = `url('${localStorage.getItem('characterImageUrl')}')`;
   };
 };
 

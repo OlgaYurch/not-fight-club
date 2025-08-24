@@ -72,6 +72,70 @@
       </section>
       <section class="section hidden" id="battle">
         <h2 class="section-title">Battle</h2>
+        <div class="battle-content">
+          <div class="battle-img-block">
+            <p class="battle-character-name" id="js-battle-character-name"></p>
+            <div class="battle-img battle-character-img"></div>
+            <input type="range" name="character-range" id="js-character-range" min="0" max="150" value="150">
+          </div>
+          <div class="battle-controls">
+            <p class="battle-text">Please pick 1&nbsp;Attack and 2&nbsp;Defence zone</p>
+            <div class="battle-inputs-block">
+              <fieldset class="battle-inputs">
+                <legend>Attack</legend>
+                <label>
+                  Head
+                  <input type="radio" name="attack" value="head">
+                </label>
+                <label>
+                  Neck
+                  <input type="radio" name="attack" value="neck">
+                </label>
+                <label>
+                  Body
+                  <input type="radio" name="attack" value="body">
+                </label>
+                <label>
+                  Belly
+                  <input type="radio" name="attack" value="belly">
+                </label>
+                <label>
+                  Legs
+                  <input type="radio" name="attack" value="legs">
+                </label>
+              </fieldset>
+              <fieldset class="battle-inputs">
+                <legend>Defence</legend>
+                <label>
+                  Head
+                  <input type="checkbox" name="defence" value="head">
+                </label>
+                <label>
+                  Neck
+                  <input type="checkbox" name="defence" value="neck">
+                </label>
+                <label>
+                  Body
+                  <input type="checkbox" name="defence" value="body">
+                </label>
+                <label>
+                  Belly
+                  <input type="checkbox" name="defence" value="belly">
+                </label>
+                <label>
+                  Legs
+                  <input type="checkbox" name="defence" value="legs">
+                </label>
+              </fieldset>
+            </div>
+            <button type="button" class="btn-text">Attack!</button>
+          </div>
+          <div class="battle-img-block">
+            <p class="battle-character-name" id="js-battle-robot-name">Robot</p>
+            <div class="battle-img battle-robot-img"></div>
+            <input type="range" name="robot-range" id="js-robot-range" min="0" max="150" value="150">
+          </div>
+        </div>
       </section>
     </div>
   </div>
