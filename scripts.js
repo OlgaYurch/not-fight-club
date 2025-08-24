@@ -31,7 +31,17 @@ function showSection(targetId) {
   };
   if (targetId === 'settings') {
     const playerNameValue = localStorage.getItem('characterName');
-    playerName.textContent = playerNameValue || 'You need register. Click "Edit".';
+    playerName.textContent = playerNameValue;
+  };
+  if (targetId === 'character') {
+    const characterName = localStorage.getItem('characterName');
+    const wins = localStorage.getItem('wins'); // пока еше не будет данные - не сделала страницу с боем
+    const loses = localStorage.getItem('loses'); // пока еше не будет данные - не сделала страницу с боем
+    const characterImageUrl = localStorage.getItem('characterImageUrl'); // еще не добавила обработчик на fight на странице home - по нему планирую соранять выбранного героя
+    document.querySelector('.character-img').style.backgroundImahe = `url('${characterImageUrl}')`;
+    document.getElementById('js-character-name').textContent = characterName;
+    document.getElementById('js-wins').textContent = wins || '0';
+    document.getElementById('js-loses').textContent = loses || '0';
   };
 };
 
@@ -47,6 +57,11 @@ editBtn.addEventListener('click', () => {
   showSection('register');
   characterNameInput.value = '';
 });
+
+
+  // Показываем секцию
+//   document.querySelector('#character').classList.remove('hidden');
+// });
 
 document.addEventListener('DOMContentLoaded', () => {
   showSection('register');
