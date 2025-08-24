@@ -38,6 +38,10 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.btn-nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
 #home-icon {
   background-image: url(assets/img/home.webp);
 }
@@ -97,7 +101,7 @@
 }
 
 @media (hover:hover) {
-  .btn-nav:hover {
+  .btn-nav:not(:disabled):hover {
     cursor: pointer;
     transform: scale(110%);
     background-color: #a4a4a4;
