@@ -30,6 +30,10 @@
   justify-content: end;
   gap: 0.5rem;
 }
+.navigation.hidden {
+  display: none;
+  cursor: default;
+}
 .btn-nav {
   width: 2rem;
   height: 2rem;
@@ -38,10 +42,6 @@
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.btn-nav:disabled {
-  opacity: 0.3;
-  cursor: default;
 }
 #home-icon {
   background-image: url(assets/img/home.webp);

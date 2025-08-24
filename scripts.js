@@ -1,3 +1,4 @@
+const navigation = document.querySelector('.navigation');
 const navigationBtns = document.querySelectorAll('.btn-nav');
 const sections = {
   register: document.querySelector('#register'),
@@ -15,18 +16,26 @@ addCharacterForm.addEventListener('submit', (event) => {
   const characterName = characterNameInput.value;
   localStorage.setItem('characterName', characterName);
   characterSelectLegend.textContent = `Hi, ${characterName}! Select your Character`;
-
-  register.classList.add('hidden');
-  home.classList.remove('hidden');
-  navigationBtns.forEach(btn => btn.disabled = false);
+  showSection('home');
 });
+
+function showSection(targetId) {
+  Object.values(sections).forEach((section) => section.classList.add('hidden'));
+  sections[targetId].classList.remove('hidden');
+  if (targetId === 'register') {
+    navigation.classList.add('hidden');
+  } else {
+    navigation.classList.remove('hidden');
+  };
+};
 
 navigationBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
     const targetId = btn.id.replace('-icon', '');
-    Object.values(sections).forEach((section) => {
-      section.classList.add('hidden');
-    });
-    sections[targetId].classList.remove('hidden');
+    showSection(targetId);
   });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  showSection('register');
 });
