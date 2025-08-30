@@ -77,8 +77,41 @@ characterSelectForm.addEventListener('submit', (event) => {
   const selectedImageUrl = document.getElementById(`${selectedCharacter.value}`).getAttribute('src');
   localStorage.setItem('characterImageUrl', selectedImageUrl);
 
+  resetRangeToMax('js-robot-range', 'js-current-robot-range');
+  resetRangeToMax('js-character-range', 'js-current-character-range');
+
   showSection('battle');
 });
+
+function setupRangeUpdater(rangeId, currentValueId, maxValueId) {
+  const rangeInput = document.getElementById(rangeId);
+  const currentRangeValue = document.getElementById(currentValueId);
+  const maxRangeValue = document.getElementById(maxValueId);
+
+  maxRangeValue.textContent = rangeInput.max;
+
+  rangeInput.addEventListener('input', () => {
+    currentRangeValue.textContent = rangeInput.value;
+    const rangePercent = (rangeInput.value / rangeInput.max) * 100;
+    rangeInput.style.background = `linear-gradient(to right, #bb470c ${rangePercent}%, #ccc ${rangePercent}%)`;
+  });
+
+  const initialPercent = (rangeInput.value / rangeInput.max) * 100;
+  rangeInput.style.background = `linear-gradient(to right, #bb470c ${initialPercent}%, #ccc ${initialPercent}%)`;
+};
+
+setupRangeUpdater('js-robot-range', 'js-current-robot-range', 'js-max-robot-range');
+setupRangeUpdater('js-character-range', 'js-current-character-range', 'js-max-character-range');
+
+function resetRangeToMax(rangeId, currentValueId) {
+  const rangeInput = document.getElementById(rangeId);
+  const currentRangeValue = document.getElementById(currentValueId);
+
+  rangeInput.value = rangeInput.max;
+  const rangePercent = 100;
+  currentRangeValue.textContent = rangeInput.value;
+  rangeInput.style.background = `linear-gradient(to right, #bb470c ${rangePercent}%, #ccc ${rangePercent}%)`;
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   showSection('register');
