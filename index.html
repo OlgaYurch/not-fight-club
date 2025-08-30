@@ -15,12 +15,12 @@
         <button type="button" id="settings-icon" class="btn-nav" aria-label="Get Settings Page"></button>
       </div>
       <section class="section" id="register">
-        <h2 class="section-title">Register</h2>
+        <h2 class="section-title hidden">Register</h2>
         <div class="register-content">
           <form id="character-form" class="form">
             <fieldset class="fieldset">
-              <legend class="form-title">Create Your Character</legend>
-              <label for="character-name" class="input-title">Character Name</label>
+              <legend class="form-title">Dedicated to our beloved grandparents! 💛</legend>
+              <label for="character-name" class="input-title">Enter Character Name</label>
               <input type="text" id="character-name" class="input" minlength="3" name="characterName" required>
             </fieldset>
             <button type="submit" class="btn-text">Create Character</button>
@@ -28,7 +28,7 @@
         </div>
       </section>
       <section class="section hidden" id="home">
-        <h2 class="section-title">Home</h2>
+        <h2 class="section-title hidden">Home</h2>
         <div class="home-content">
           <form id="character-select" class="form">
             <fieldset class="fieldset">
@@ -36,15 +36,23 @@
               <div class="characters-list">
                 <label class="character-card">
                   <input type="radio" name="character" value="character1">
-                  <img src="assets/img/characters/character1.webp" id="character1" alt="Character 1">
+                  <img src="assets/img/characters/hesenica.webp" id="character1" alt="Hesenica Character">
                 </label>
                 <label class="character-card">
                   <input type="radio" name="character" value="character2">
-                  <img src="assets/img/characters/character2.webp" id="character2" alt="Character 2">
+                  <img src="assets/img/characters/beetle.webp" id="character2" alt="Beetle Character">
                 </label>
                 <label class="character-card">
                   <input type="radio" name="character" value="character3">
-                  <img src="assets/img/characters/character3.webp" id="character3" alt="Character 3">
+                  <img src="assets/img/characters/mole.webp" id="character3" alt="Mole Character">
+                </label>
+                <label class="character-card">
+                  <input type="radio" name="character" value="character4">
+                  <img src="assets/img/characters/rat.webp" id="character4" alt="Rat Character">
+                </label>
+                <label class="character-card">
+                  <input type="radio" name="character" value="character5">
+                  <img src="assets/img/characters/slug.webp" id="character5" alt="Slug Character">
                 </label>
               </div>
             </fieldset>
@@ -53,7 +61,7 @@
         </div>
       </section>
       <section class="section hidden" id="character">
-        <h2 class="section-title">Character</h2>
+        <h2 class="section-title hidden">Character</h2>
         <div class="character-content">
           <div class="character-img"></div>
           <div class="character-info">
@@ -64,14 +72,14 @@
         </div>
       </section>
       <section class="section hidden" id="settings">
-        <h2 class="section-title">Settings</h2>
+        <h2 class="section-title hidden">Settings</h2>
         <div class="settings-content">
-          <p class="player-name">Player name: <span id="js-player-name"></span></p>
+          <p class="player-name">Character name: <span id="js-player-name"></span></p>
           <button type="button" class="btn-text" id="js-edit-btn">Edit</button>
         </div>
       </section>
       <section class="section hidden" id="battle">
-        <h2 class="section-title">Battle</h2>
+        <h2 class="section-title hidden">Battle</h2>
         <div class="battle-content">
           <div class="battle-img-block">
             <p class="battle-character-name" id="js-battle-character-name"></p>
@@ -96,10 +104,6 @@
                   <input type="radio" name="attack" value="body">
                 </label>
                 <label>
-                  Belly
-                  <input type="radio" name="attack" value="belly">
-                </label>
-                <label>
                   Legs
                   <input type="radio" name="attack" value="legs">
                 </label>
@@ -117,10 +121,6 @@
                 <label>
                   Body
                   <input type="checkbox" name="defence" value="body">
-                </label>
-                <label>
-                  Belly
-                  <input type="checkbox" name="defence" value="belly">
                 </label>
                 <label>
                   Legs

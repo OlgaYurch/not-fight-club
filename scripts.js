@@ -29,20 +29,24 @@ function showSection(targetId) {
     navigation.classList.add('hidden');
   } else {
     navigation.classList.remove('hidden');
+    document.querySelector('.body-background').style.backgroundImage = `url(assets/img/background/garden-home.webp)`;
   };
   if (targetId === 'settings') {
+    document.querySelector('.body-background').style.backgroundImage = `url(assets/img/background/garden-character.webp)`;
     const playerNameValue = localStorage.getItem('characterName');
     playerName.textContent = playerNameValue;
   };
   if (targetId === 'character') {
     const wins = localStorage.getItem('wins');
     const loses = localStorage.getItem('loses');
+    document.querySelector('.body-background').style.backgroundImage = `url(assets/img/background/garden-character.webp)`;
     document.querySelector('.character-img').style.backgroundImage = `url('${localStorage.getItem('characterImageUrl')}')`;
     document.getElementById('js-character-name').textContent = localStorage.getItem('characterName');
     document.getElementById('js-wins').textContent = wins || '0';
     document.getElementById('js-loses').textContent = loses || '0';
   };
   if (targetId === 'battle') {
+    document.querySelector('.body-background').style.backgroundImage = `url(assets/img/background/garden.webp)`;
     document.querySelector('#js-battle-character-name').textContent = localStorage.getItem('characterName');
     document.querySelector('.battle-character-img').style.backgroundImage = `url('${localStorage.getItem('characterImageUrl')}')`;
   };
