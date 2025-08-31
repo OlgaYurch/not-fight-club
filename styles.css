@@ -82,14 +82,14 @@
   justify-content: center;
   align-items: center;
 }
-.settings-content,
-.character-content {
-  gap: 1.5rem;
-}
 .character-content {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
+}
+.settings-content {
+  gap: 3.5rem;
 }
 .form {
   display: flex;
@@ -172,6 +172,42 @@
 .player-name span,
 .character-description span {
   font-weight: 600;
+}
+.choose-character,
+.choose-robor {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  max-width: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.robot-list {
+  display: flex;
+  gap: 0.5rem;
+}
+.robot-card {
+  max-width: calc(100%/2);
+  height: 250px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+.robot-card input[type="radio"] {
+  opacity: 0;
+  pointer-events: none;
+}
+.robot-card img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(80%);
+}
+.robot-card input[type="radio"]:checked + img {
+  filter: grayscale(0%);
+  border: 2px solid #1f1607;
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.3);
+  border-radius: 6px;
 }
 .battle-content {
   display: flex;
@@ -269,6 +305,11 @@ input[type="range"]::-webkit-slider-thumb {
     border: 2px solid #1f1607;
   }
   .character-card:hover img {
+    cursor: pointer;
+    filter: grayscale(0%);
+    transform: scale(1.02);
+  }
+  .robot-card:hover img {
     cursor: pointer;
     filter: grayscale(0%);
     transform: scale(1.02);

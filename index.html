@@ -74,8 +74,23 @@
       <section class="section hidden" id="settings">
         <h2 class="section-title hidden">Settings</h2>
         <div class="settings-content">
-          <p class="player-name">Character name: <span id="js-player-name"></span></p>
-          <button type="button" class="btn-text" id="js-edit-btn">Edit</button>
+          <div class="choose-character">
+            <p class="player-name">Character name: <span id="js-player-name"></span></p>
+            <button type="button" class="btn-text" id="js-edit-btn">Edit</button>
+          </div>
+          <div class="choose-robor">
+            <div class="robot-list">
+              <label class="robot-card">
+                <input type="radio" name="robot" value="robot1">
+                <img src="assets/img/characters/babka.webp" id="robot1" alt="Babka Robot">
+              </label>
+              <label class="robot-card">
+                <input type="radio" name="robot" value="robot2">
+                <img src="assets/img/characters/ded.webp" id="robot2" alt="Ded Robot">
+              </label>
+            </div>
+            <button type="button" class="btn-text" id="js-choose-btn">Choose</button>
+          </div>
         </div>
       </section>
       <section class="section hidden" id="battle">

@@ -13,6 +13,7 @@ const characterSelectLegend = document.getElementById('js-character-select-legen
 const playerName = document.getElementById('js-player-name');
 const editBtn = document.getElementById('js-edit-btn');
 const characterSelectForm = document.getElementById('character-select');
+const chooseRobotBtn = document.getElementById('js-choose-btn');
 
 addCharacterForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -49,6 +50,7 @@ function showSection(targetId) {
     document.querySelector('.body-background').style.backgroundImage = `url(assets/img/background/garden.webp)`;
     document.getElementById('js-battle-character-name').textContent = localStorage.getItem('characterName');
     document.querySelector('.battle-character-img').style.backgroundImage = `url('${localStorage.getItem('characterImageUrl')}')`;
+    document.querySelector('.battle-robot-img').style.backgroundImage = `url('${localStorage.getItem('robotImageUrl')}')`;
   };
 };
 
@@ -113,6 +115,34 @@ function resetRangeToMax(rangeId, currentValueId) {
   rangeInput.style.background = `linear-gradient(to right, #bb470c ${rangePercent}%, #ccc ${rangePercent}%)`;
 };
 
+chooseRobotBtn.addEventListener('click', () => {
+  const selectedRobot = document.querySelector('input[name="robot"]:checked');
+  const currentRobotId = localStorage.getItem('selectedRobot');
+  if (!selectedRobot) {
+    showSection('battle');
+    return;
+  };
+  const newRobotId = selectedRobot.value;
+  if (newRobotId === currentRobotId) {
+    alert('You are already playing against this character.');
+    showSection('battle');
+    return;
+  };
+  const newRobotImageUrl = document.getElementById(newRobotId).getAttribute('src');
+  localStorage.setItem('robotImageUrl', newRobotImageUrl);
+  localStorage.setItem('selectedRobot', newRobotId);
+
+  resetRangeToMax('js-robot-range', 'js-current-robot-range');
+  resetRangeToMax('js-character-range', 'js-current-character-range');
+  showSection('battle');
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   showSection('register');
+  if (!localStorage.getItem('robotImageUrl')) {
+    const defaultRobotId = 'robot1';
+    const defaultRobotImageUrl = document.getElementById(defaultRobotId).getAttribute('src');
+    localStorage.setItem('robotImageUrl', defaultRobotImageUrl);
+    localStorage.setItem('selectedRobot', defaultRobotId);
+  };
 });
