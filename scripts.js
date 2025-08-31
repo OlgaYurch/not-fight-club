@@ -1,17 +1,17 @@
 const navigation = document.querySelector('.navigation');
 const navigationBtns = document.querySelectorAll('.btn-nav');
 const sections = {
-  register: document.querySelector('#register'),
-  home: document.querySelector('#home'),
-  character: document.querySelector('#character'),
-  settings: document.querySelector('#settings'),
-  battle: document.querySelector('#battle')
+  register: document.getElementById('register'),
+  home: document.getElementById('home'),
+  character: document.getElementById('character'),
+  settings: document.getElementById('settings'),
+  battle: document.getElementById('battle')
 };
-const addCharacterForm = document.querySelector('#character-form');
-const characterNameInput = document.querySelector('#character-name');
-const characterSelectLegend = document.querySelector('#js-character-select-legend');
-const playerName = document.querySelector('#js-player-name');
-const editBtn = document.querySelector('#js-edit-btn');
+const addCharacterForm = document.getElementById('character-form');
+const characterNameInput = document.getElementById('character-name');
+const characterSelectLegend = document.getElementById('js-character-select-legend');
+const playerName = document.getElementById('js-player-name');
+const editBtn = document.getElementById('js-edit-btn');
 const characterSelectForm = document.getElementById('character-select');
 
 addCharacterForm.addEventListener('submit', (event) => {
@@ -47,7 +47,7 @@ function showSection(targetId) {
   };
   if (targetId === 'battle') {
     document.querySelector('.body-background').style.backgroundImage = `url(assets/img/background/garden.webp)`;
-    document.querySelector('#js-battle-character-name').textContent = localStorage.getItem('characterName');
+    document.getElementById('js-battle-character-name').textContent = localStorage.getItem('characterName');
     document.querySelector('.battle-character-img').style.backgroundImage = `url('${localStorage.getItem('characterImageUrl')}')`;
   };
 };
